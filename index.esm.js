@@ -2228,6 +2228,7 @@ var script$3 = {
     return {
       panel: panel,
       innerCalendar: null,
+      activeIndex: undefined,
     };
   },
   computed: {
@@ -2317,8 +2318,9 @@ var script$3 = {
       this.$emit('update:calendar', date);
       this.dispatch('DatePicker', 'calendar-change', date, oldValue, type);
     },
-    handelPanelChange: function handelPanelChange(panel) {
+    handelPanelChange: function handelPanelChange(panel, index) {
       this.panel = panel;
+      this.activeIndex = index;
     },
     handleIconLeftClick: function handleIconLeftClick() {
       var nextCalendar = subMonths(this.innerCalendar, 1);
@@ -2615,7 +2617,7 @@ var __vue_render__$5 = function __vue_render__() {
               class: _vm.prefixClass + '-calendar-header-label',
             },
             [
-              _vm._l(_vm.dateHeader, function(item) {
+              _vm._l(_vm.dateHeader, function(item, index) {
                 return _c(
                   'button',
                   {
@@ -2627,13 +2629,15 @@ var __vue_render__$5 = function __vue_render__() {
                       '-btn-text ' +
                       _vm.prefixClass +
                       '-btn-current-' +
-                      item.panel,
+                      item.panel +
+                      ' ' +
+                      (_vm.activeIndex === index ? 'active' : ''),
                     attrs: {
                       type: 'button',
                     },
                     on: {
                       click: function click($event) {
-                        return _vm.handelPanelChange(item.panel);
+                        return _vm.handelPanelChange(item.panel, index);
                       },
                     },
                   },
@@ -2652,42 +2656,64 @@ var __vue_render__$5 = function __vue_render__() {
           class: _vm.prefixClass + '-calendar-content',
         },
         [
-          _c('table-year', {
-            directives: [
-              {
-                name: 'show',
-                rawName: 'v-show',
-                value: _vm.panel === 'year',
-                expression: "panel === 'year'",
+          _c(
+            'transition',
+            {
+              attrs: {
+                name: 'fade',
               },
-            ],
-            attrs: {
-              decade: _vm.calendarDecade,
-              'get-cell-classes': _vm.getYearClasses,
             },
-            on: {
-              select: _vm.handleSelectYear,
-            },
-          }),
-          _vm._v(' '),
-          _vm.type !== 'year'
-            ? _c('table-month', {
+            [
+              _c('table-year', {
                 directives: [
                   {
                     name: 'show',
                     rawName: 'v-show',
-                    value: _vm.panel === 'month',
-                    expression: "panel === 'month'",
+                    value: _vm.panel === 'year',
+                    expression: "panel === 'year'",
                   },
                 ],
                 attrs: {
-                  'get-cell-classes': _vm.getMonthClasses,
+                  decade: _vm.calendarDecade,
+                  'get-cell-classes': _vm.getYearClasses,
                 },
                 on: {
-                  select: _vm.handleSelectMonth,
+                  select: _vm.handleSelectYear,
                 },
-              })
-            : _vm._e(),
+              }),
+            ],
+            1
+          ),
+          _vm._v(' '),
+          _c(
+            'transition',
+            {
+              attrs: {
+                name: 'fade',
+              },
+            },
+            [
+              _vm.type !== 'year'
+                ? _c('table-month', {
+                    directives: [
+                      {
+                        name: 'show',
+                        rawName: 'v-show',
+                        value: _vm.panel === 'month',
+                        expression: "panel === 'month'",
+                      },
+                    ],
+                    attrs: {
+                      'get-cell-classes': _vm.getMonthClasses,
+                    },
+                    on: {
+                      select: _vm.handleSelectMonth,
+                    },
+                  })
+                : _vm._e(),
+            ],
+            1
+          ),
           _vm._v(' '),
           _vm.type !== 'year' && _vm.type !== 'month'
             ? _c('table-date', {

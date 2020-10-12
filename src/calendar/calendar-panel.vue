@@ -42,13 +42,15 @@
       <span :class="`${prefixClass}-calendar-header-label`">
         <template>
           <button
-            v-for="item in dateHeader"
+            v-for="(item, index) in dateHeader"
             :key="item.panel"
             type="button"
             :class="
-              `${prefixClass}-btn ${prefixClass}-btn-text ${prefixClass}-btn-current-${item.panel}`
+              `${prefixClass}-btn ${prefixClass}-btn-text ${prefixClass}-btn-current-${
+                item.panel
+              } ${activeIndex === index ? 'active' : ''}`
             "
-            @click="handelPanelChange(item.panel)"
+            @click="handelPanelChange(item.panel, index)"
           >
             {{ item.label }}
           </button>
@@ -56,18 +58,22 @@
       </span>
     </div>
     <div :class="`${prefixClass}-calendar-content`">
-      <table-year
-        v-show="panel === 'year'"
-        :decade="calendarDecade"
-        :get-cell-classes="getYearClasses"
-        @select="handleSelectYear"
-      ></table-year>
-      <table-month
-        v-if="type !== 'year'"
-        v-show="panel === 'month'"
-        :get-cell-classes="getMonthClasses"
-        @select="handleSelectMonth"
-      ></table-month>
+      <transition name="fade">
+        <table-year
+          v-show="panel === 'year'"
+          :decade="calendarDecade"
+          :get-cell-classes="getYearClasses"
+          @select="handleSelectYear"
+        ></table-year>
+      </transition>
+      <transition name="fade">
+        <table-month
+          v-if="type !== 'year'"
+          v-show="panel === 'month'"
+          :get-cell-classes="getMonthClasses"
+          @select="handleSelectMonth"
+        ></table-month>
+      </transition>
       <table-date
         v-if="type !== 'year' && type !== 'month'"
         v-show="panel === 'date'"
@@ -169,6 +175,7 @@ export default {
     return {
       panel,
       innerCalendar: null,
+      activeIndex: undefined,
     };
   },
   computed: {
@@ -252,8 +259,9 @@ export default {
       this.$emit('update:calendar', date);
       this.dispatch('DatePicker', 'calendar-change', date, oldValue, type);
     },
-    handelPanelChange(panel) {
+    handelPanelChange(panel, index) {
       this.panel = panel;
+      this.activeIndex = index;
     },
     handleIconLeftClick() {
       const nextCalendar = subMonths(this.innerCalendar, 1);

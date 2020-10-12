@@ -47,7 +47,7 @@ exports[`CalendarPanel prop: type=date 1`] = `
       class="mx-calendar-header-label"
     >
       <button
-        class="mx-btn mx-btn-text mx-btn-current-month"
+        class="mx-btn mx-btn-text mx-btn-current-month "
         type="button"
       >
         
@@ -55,7 +55,7 @@ exports[`CalendarPanel prop: type=date 1`] = `
         
       </button>
       <button
-        class="mx-btn mx-btn-text mx-btn-current-year"
+        class="mx-btn mx-btn-text mx-btn-current-year "
         type="button"
       >
         
@@ -71,11 +71,13 @@ exports[`CalendarPanel prop: type=date 1`] = `
     <table-year-stub
       decade="2010"
       getcellclasses="function () { [native code] }"
+      name="fade"
       style="display: none;"
     />
      
     <table-month-stub
       getcellclasses="function () { [native code] }"
+      name="fade"
       style="display: none;"
     />
      
@@ -139,7 +141,7 @@ exports[`CalendarPanel prop: type=month 1`] = `
       class="mx-calendar-header-label"
     >
       <button
-        class="mx-btn mx-btn-text mx-btn-current-month"
+        class="mx-btn mx-btn-text mx-btn-current-month "
         type="button"
       >
         
@@ -147,7 +149,7 @@ exports[`CalendarPanel prop: type=month 1`] = `
         
       </button>
       <button
-        class="mx-btn mx-btn-text mx-btn-current-year"
+        class="mx-btn mx-btn-text mx-btn-current-year "
         type="button"
       >
         
@@ -163,11 +165,13 @@ exports[`CalendarPanel prop: type=month 1`] = `
     <table-year-stub
       decade="2010"
       getcellclasses="function () { [native code] }"
+      name="fade"
       style="display: none;"
     />
      
     <table-month-stub
       getcellclasses="function () { [native code] }"
+      name="fade"
     />
      
     <!---->
@@ -224,7 +228,7 @@ exports[`CalendarPanel prop: type=year 1`] = `
       class="mx-calendar-header-label"
     >
       <button
-        class="mx-btn mx-btn-text mx-btn-current-month"
+        class="mx-btn mx-btn-text mx-btn-current-month "
         type="button"
       >
         
@@ -232,7 +236,7 @@ exports[`CalendarPanel prop: type=year 1`] = `
         
       </button>
       <button
-        class="mx-btn mx-btn-text mx-btn-current-year"
+        class="mx-btn mx-btn-text mx-btn-current-year "
         type="button"
       >
         
@@ -248,6 +252,7 @@ exports[`CalendarPanel prop: type=year 1`] = `
     <table-year-stub
       decade="2010"
       getcellclasses="function () { [native code] }"
+      name="fade"
     />
      
     <!---->
