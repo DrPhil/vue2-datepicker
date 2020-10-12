@@ -40,20 +40,7 @@
         <i :class="`${prefixClass}-icon-right`"></i>
       </button>
       <span :class="`${prefixClass}-calendar-header-label`">
-        <template v-if="panel === 'year'">
-          <span>{{ calendarDecade }}</span>
-          <span :class="`${prefixClass}-calendar-decade-separator`"></span>
-          <span>{{ calendarDecade + 9 }}</span>
-        </template>
-        <button
-          v-else-if="panel === 'month'"
-          type="button"
-          :class="`${prefixClass}-btn ${prefixClass}-btn-text`"
-          @click="handelPanelChange('year')"
-        >
-          {{ calendarYear }}
-        </button>
-        <template v-else-if="panel === 'date'">
+        <template>
           <button
             v-for="item in dateHeader"
             :key="item.panel"
@@ -91,7 +78,11 @@
         :get-cell-classes="getDateClasses"
         :get-row-classes="getWeekState"
         @select="handleSelectDate"
-      ></table-date>
+      >
+        <template #date-cell="{cell}">
+          <slot :cell="cell" name="date-cell"></slot>
+        </template>
+      </table-date>
     </div>
   </div>
 </template>
@@ -287,7 +278,7 @@ export default {
       } else {
         const nextCalendar = setYear(this.innerCalendar, year);
         this.updateCalendar(nextCalendar, 'year');
-        this.handelPanelChange('month');
+        this.handelPanelChange('date');
         if (this.partialUpdate && this.innerValue.length === 1) {
           const date = setYear(this.innerValue[0], year);
           this.emitDate(date, 'year');
