@@ -75,7 +75,6 @@ function _objectSpread2(target) {
       ownKeys(Object(source)).forEach(function(key) {
         Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
       });
-    }
   }
 
   return target;
@@ -492,8 +491,8 @@ function _objectSpread(target) {
       ownKeys$1(source).forEach(function(key) {
         Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
       });
-    }
-  }
+    },
+  },
 
   return target;
 }
@@ -768,7 +767,7 @@ function createUTCDate() {
 
     if (isFinite(date.getUTCFullYear())) {
       date.setUTCFullYear(y);
-    }
+    },
   } else {
     date = new Date(Date.UTC.apply(Date, args));
   }
@@ -1398,7 +1397,6 @@ function normalizeComponent(
   } // Vue.extend constructor export interop.
 
   var options = typeof script === 'function' ? script.options : script; // render functions
-
   if (template && template.render) {
     options.render = template.render;
     options.staticRenderFns = template.staticRenderFns;
@@ -1412,7 +1410,6 @@ function normalizeComponent(
   if (scopeId) {
     options._scopeId = scopeId;
   }
-
   var hook;
 
   if (moduleIdentifier) {
@@ -1432,13 +1429,11 @@ function normalizeComponent(
       if (style) {
         style.call(this, createInjectorSSR(context));
       } // register component module identifier for async chunk inference
-
       if (context && context._registeredComponents) {
         context._registeredComponents.add(moduleIdentifier);
       }
     }; // used by ssr in case component is cached and beforeCreate
     // never gets called
-
     options._ssrRegister = hook;
   } else if (style) {
     hook = shadowMode
@@ -1449,7 +1444,6 @@ function normalizeComponent(
           style.call(this, createInjector(context));
         };
   }
-
   if (hook) {
     if (options.functional) {
       // register for functional component in vue file
@@ -1463,7 +1457,7 @@ function normalizeComponent(
       // inject component registration as beforeCreate hook
       var existing = options.beforeCreate;
       options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
-    }
+    },
   }
 
   return script;
@@ -1679,14 +1673,13 @@ var script = {
 
       calendar.setMonth(month + 1, 0);
       var lastDayInCurrentMonth = calendar.getDate();
-
       for (var _i = 1; _i <= lastDayInCurrentMonth; _i++) {
         arr.push({
           day: _i,
           text: _i,
           date: this.getCellTitle(_i),
         });
-      }
+      },
 
       var lastMonthLength = lastDayInLastMonth - firstDayInLastMonth + 1;
       var nextMonthLength = 6 * 7 - lastMonthLength - lastDayInCurrentMonth;
@@ -1699,7 +1692,7 @@ var script = {
           text: _i2,
           date: this.getCellTitle(_day),
         });
-      }
+      },
 
       return chunk(arr, 7);
     },
@@ -1715,13 +1708,13 @@ var script = {
 
       if (target.tagName === 'DIV') {
         target = target.parentNode;
-      }
+      },
 
       var day = target.getAttribute('data-day');
 
       if (day) {
         this.$emit('select', parseInt(day, 10));
-      }
+      },
     },
     getCellTitle: function getCellTitle(day) {
       var year = this.calendarYear;
@@ -1909,7 +1902,7 @@ var script$1 = {
 
       if (target.tagName === 'DIV') {
         target = target.parentNode;
-      }
+      },
 
       var month = target.getAttribute('data-month');
 
@@ -2140,7 +2133,7 @@ var emitter = {
         if (parent) {
           name = parent.$options.name;
         }
-      }
+      },
 
       if (parent) {
         var _parent;
@@ -2154,7 +2147,7 @@ var emitter = {
         }
 
         (_parent = parent).$emit.apply(_parent, params);
-      }
+      },
     },
   },
 };
@@ -2297,7 +2290,7 @@ var script$3 = {
       if (!isValidDate$1(calendarDate)) {
         var length = this.innerValue.length;
         calendarDate = getValidDate(length > 0 ? this.innerValue[length - 1] : this.defaultValue);
-      }
+      },
 
       this.innerCalendar = calendarDate;
     },
@@ -2309,7 +2302,7 @@ var script$3 = {
         this.$emit('select', date, type, this.innerValue); // someone need get the first selected date to set range value. (#429)
 
         this.dispatch('DatePicker', 'pick', date, type);
-      }
+      },
     },
     updateCalendar: function updateCalendar(date, type) {
       var oldValue = new Date(this.innerCalendar);
@@ -3159,7 +3152,7 @@ var scrollTo = function scrollTo(element, to) {
     if (scrollTop >= to) {
       element.scrollTop = to;
       return;
-    }
+    },
 
     element.scrollTop = scrollTop;
     scrollTo(element, to, duration - 10);
@@ -3334,7 +3327,7 @@ var script$5 = {
           var to = element.offsetTop;
           scrollTo(scrollElement, to, duration);
         }
-      }
+      },
     },
     handleSelect: function handleSelect(evt) {
       var target = evt.target,
@@ -3507,7 +3500,7 @@ var script$6 = {
 
       if (typeof options === 'function') {
         return options() || [];
-      }
+      },
 
       var start = parseOption(options.start);
       var end = parseOption(options.end);
@@ -3530,7 +3523,7 @@ var script$6 = {
             text: this.formatDate(value, fmt),
           });
         }
-      }
+      },
 
       return result;
     },
@@ -3753,7 +3746,7 @@ var script$7 = {
 
       if (!this.isDisabled(value)) {
         this.$emit('select', date, type);
-      }
+      },
     },
     handleClickTitle: function handleClickTitle() {
       this.$emit('title-click');
@@ -3763,11 +3756,11 @@ var script$7 = {
 
       if (this.isDisabled(value)) {
         return 'disabled';
-      }
+      },
 
       if (cellDate.getTime() === this.innerValue.getTime()) {
         return 'active';
-      }
+      },
 
       return '';
     },
@@ -3947,7 +3940,7 @@ var TimeRange = {
 
       if (!(this.endValue.getTime() >= date.getTime())) {
         this.endValue = date;
-      }
+      },
 
       this.emitChange(type, 0);
     },
@@ -4015,7 +4008,6 @@ var TimeRange = {
       ]
     );
   },
-};
 
 function _extends$1() {
   return (
@@ -4237,7 +4229,7 @@ var DatetimeRange = {
           this.currentValue = datetimes;
           return;
         }
-      }
+      },
 
       this.emitDate(datetimes, type);
     },
@@ -4451,12 +4443,12 @@ var script$8 = {
       if (this.validMultipleType) {
         value = Array.isArray(value) ? value : [];
         return value.map(this.value2date);
-      }
+      },
 
       if (this.range) {
         value = Array.isArray(value) ? value.slice(0, 2) : [null, null];
         return value.map(this.value2date);
-      }
+      },
 
       return this.value2date(this.value);
     },
@@ -4465,7 +4457,7 @@ var script$8 = {
 
       if (this.userInput !== null) {
         return this.userInput;
-      }
+      },
 
       if (typeof this.renderInputText === 'function') {
         return this.renderInputText(this.innerValue);

@@ -92,7 +92,6 @@
         ownKeys(Object(source)).forEach(function(key) {
           Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
         });
-      }
     }
 
     return target;
@@ -215,8 +214,8 @@
 
       if (date.getTime() >= firstDateOfFirstWeek.getTime()) {
         break;
-      }
-    }
+      },
+    },
 
     return firstDateOfFirstWeek;
   }
@@ -451,7 +450,7 @@
 
     if (!isValidDate(date)) {
       return 'Invalid Date';
-    }
+    },
 
     var locale$1 = options.locale || locale;
     return formatStr.replace(REGEX_FORMAT, function(match, p1) {
@@ -522,8 +521,8 @@
         ownKeys$1(source).forEach(function(key) {
           Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
         });
-      }
-    }
+      },
+    },
 
     return target;
   }
@@ -565,8 +564,8 @@
         if (!_n && _i['return'] != null) _i['return']();
       } finally {
         if (_d) throw _e;
-      }
-    }
+      },
+    },
 
     return _arr;
   }
@@ -752,8 +751,8 @@
         }
       } else if (hour === 12) {
         return 0;
-      }
-    }
+      },
+    },
 
     return hour;
   }
@@ -778,8 +777,8 @@
       } else {
         result[i] = input[i];
         useBackup = false;
-      }
-    }
+      },
+    },
 
     return result;
   }
@@ -836,8 +835,8 @@
         var obj = parser(value, locale);
         mark = _objectSpread({}, mark, {}, obj);
         dateString = dateString.replace(value, '');
-      }
-    }
+      },
+    },
 
     return mark;
   }
@@ -867,7 +866,7 @@
 
       if (date) {
         return date;
-      }
+      },
 
       var inputArray = [year, month, day, hour, minute, second, millisecond];
       inputArray[3] = to24hour(inputArray[3], isPM); // check week
@@ -879,7 +878,7 @@
           firstWeekContainsDate: _locale.firstWeekContainsDate,
         });
         return new Date(firstDate.getTime() + (week - 1) * 7 * 24 * 3600 * 1000);
-      }
+      },
 
       var utcDate = createUTCDate.apply(
         void 0,
@@ -891,7 +890,7 @@
 
       if (weekday !== undefined && parsedDate.getDay() !== weekday) {
         return new Date(NaN);
-      }
+      },
 
       return parsedDate;
     } catch (e) {
@@ -1001,7 +1000,7 @@
     props.forEach(function(prop) {
       if (prop in obj) {
         res[prop] = obj[prop];
-      }
+      },
     });
     return res;
   }
@@ -1144,11 +1143,11 @@
 
       if (i === len - 1) {
         return value;
-      }
+      },
 
       if (!value) {
         return null;
-      }
+      },
 
       current = value;
     }
@@ -1164,7 +1163,7 @@
 
       for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
         args[_key] = arguments[_key];
-      }
+      },
 
       if (isRunning) return;
       isRunning = true;
@@ -1303,11 +1302,11 @@
 
       if (this.inline) {
         return;
-      }
+      },
 
       if (this.appendToBody) {
         document.body.appendChild(this.$el);
-      }
+      },
 
       this._clickoutEvent = 'ontouchend' in document ? 'touchstart' : 'mousedown';
       document.addEventListener(this._clickoutEvent, this.handleClickOutside); // change the popup position when resize or scroll
@@ -1325,11 +1324,11 @@
     beforeDestroy: function beforeDestroy() {
       if (this.inline) {
         return;
-      }
+      },
 
       if (this.appendToBody && this.$el.parentNode) {
         this.$el.parentNode.removeChild(this.$el);
-      }
+      },
 
       document.removeEventListener(this._clickoutEvent, this.handleClickOutside);
 
@@ -1386,7 +1385,7 @@
           },
           [this.$slots.default]
         );
-      }
+      },
 
       return h(
         'transition',
@@ -1436,7 +1435,6 @@
     } // Vue.extend constructor export interop.
 
     var options = typeof script === 'function' ? script.options : script; // render functions
-
     if (template && template.render) {
       options.render = template.render;
       options.staticRenderFns = template.staticRenderFns;
@@ -1444,13 +1442,12 @@
 
       if (isFunctionalTemplate) {
         options.functional = true;
-      }
+      },
     } // scopedId
 
     if (scopeId) {
       options._scopeId = scopeId;
     }
-
     var hook;
 
     if (moduleIdentifier) {
@@ -1470,13 +1467,11 @@
         if (style) {
           style.call(this, createInjectorSSR(context));
         } // register component module identifier for async chunk inference
-
         if (context && context._registeredComponents) {
           context._registeredComponents.add(moduleIdentifier);
         }
       }; // used by ssr in case component is cached and beforeCreate
       // never gets called
-
       options._ssrRegister = hook;
     } else if (style) {
       hook = shadowMode
@@ -1487,7 +1482,6 @@
             style.call(this, createInjector(context));
           };
     }
-
     if (hook) {
       if (options.functional) {
         // register for functional component in vue file
@@ -1501,8 +1495,8 @@
         // inject component registration as beforeCreate hook
         var existing = options.beforeCreate;
         options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
-      }
-    }
+      },
+    },
 
     return script;
   }
@@ -1691,7 +1685,7 @@
         ); // eslint-disable-next-line no-console
 
         console.warn(new Error().stack);
-      }
+      },
 
       return new Date(NaN);
     }
@@ -2188,14 +2182,13 @@
 
         calendar.setMonth(month + 1, 0);
         var lastDayInCurrentMonth = calendar.getDate();
-
         for (var _i = 1; _i <= lastDayInCurrentMonth; _i++) {
           arr.push({
             day: _i,
             text: _i,
             date: this.getCellTitle(_i),
           });
-        }
+        },
 
         var lastMonthLength = lastDayInLastMonth - firstDayInLastMonth + 1;
         var nextMonthLength = 6 * 7 - lastMonthLength - lastDayInCurrentMonth;
@@ -2208,7 +2201,7 @@
             text: _i2,
             date: this.getCellTitle(_day),
           });
-        }
+        },
 
         return chunk(arr, 7);
       },
@@ -2224,13 +2217,13 @@
 
         if (target.tagName === 'DIV') {
           target = target.parentNode;
-        }
+        },
 
         var day = target.getAttribute('data-day');
 
         if (day) {
           this.$emit('select', parseInt(day, 10));
-        }
+        },
       },
       getCellTitle: function getCellTitle(day) {
         var year = this.calendarYear;
@@ -2418,13 +2411,13 @@
 
         if (target.tagName === 'DIV') {
           target = target.parentNode;
-        }
+        },
 
         var month = target.getAttribute('data-month');
 
         if (month) {
           this.$emit('select', parseInt(month, 10));
-        }
+        },
       },
     },
   };
@@ -2649,7 +2642,7 @@
           if (parent) {
             name = parent.$options.name;
           }
-        }
+        },
 
         if (parent) {
           var _parent;
@@ -2663,7 +2656,7 @@
           }
 
           (_parent = parent).$emit.apply(_parent, params);
-        }
+        },
       },
     },
   };
@@ -2806,7 +2799,7 @@
         if (!isValidDate$1(calendarDate)) {
           var length = this.innerValue.length;
           calendarDate = getValidDate(length > 0 ? this.innerValue[length - 1] : this.defaultValue);
-        }
+        },
 
         this.innerCalendar = calendarDate;
       },
@@ -2818,7 +2811,7 @@
           this.$emit('select', date, type, this.innerValue); // someone need get the first selected date to set range value. (#429)
 
           this.dispatch('DatePicker', 'pick', date, type);
-        }
+        },
       },
       updateCalendar: function updateCalendar(date, type) {
         var oldValue = new Date(this.innerCalendar);
@@ -3670,7 +3663,7 @@
       if (scrollTop >= to) {
         element.scrollTop = to;
         return;
-      }
+      },
 
       element.scrollTop = scrollTop;
       scrollTo(element, to, duration - 10);
@@ -3845,7 +3838,7 @@
             var to = element.offsetTop;
             scrollTo(scrollElement, to, duration);
           }
-        }
+        },
       },
       handleSelect: function handleSelect(evt) {
         var target = evt.target,
@@ -4018,7 +4011,7 @@
 
         if (typeof options === 'function') {
           return options() || [];
-        }
+        },
 
         var start = parseOption(options.start);
         var end = parseOption(options.end);
@@ -4041,7 +4034,7 @@
               text: this.formatDate(value, fmt),
             });
           }
-        }
+        },
 
         return result;
       },
@@ -4264,7 +4257,7 @@
 
         if (!this.isDisabled(value)) {
           this.$emit('select', date, type);
-        }
+        },
       },
       handleClickTitle: function handleClickTitle() {
         this.$emit('title-click');
@@ -4274,11 +4267,11 @@
 
         if (this.isDisabled(value)) {
           return 'disabled';
-        }
+        },
 
         if (cellDate.getTime() === this.innerValue.getTime()) {
           return 'active';
-        }
+        },
 
         return '';
       },
@@ -4458,7 +4451,7 @@
 
         if (!(this.endValue.getTime() >= date.getTime())) {
           this.endValue = date;
-        }
+        },
 
         this.emitChange(type, 0);
       },
@@ -4526,7 +4519,6 @@
         ]
       );
     },
-  };
 
   function _extends$1() {
     return (
@@ -4752,7 +4744,7 @@
             this.currentValue = datetimes;
             return;
           }
-        }
+        },
 
         this.emitDate(datetimes, type);
       },
@@ -4966,12 +4958,12 @@
         if (this.validMultipleType) {
           value = Array.isArray(value) ? value : [];
           return value.map(this.value2date);
-        }
+        },
 
         if (this.range) {
           value = Array.isArray(value) ? value.slice(0, 2) : [null, null];
           return value.map(this.value2date);
-        }
+        },
 
         return this.value2date(this.value);
       },
@@ -4980,7 +4972,7 @@
 
         if (this.userInput !== null) {
           return this.userInput;
-        }
+        },
 
         if (typeof this.renderInputText === 'function') {
           return this.renderInputText(this.innerValue);
