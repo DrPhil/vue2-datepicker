@@ -23,7 +23,7 @@
     "deploy:build": "cross-env NODE_ENV=production parcel build ./example/index.html --public-url ./ --out-dir _site --no-source-maps --no-minify",
     "deploy": "bash build/gh-pages-deploy.sh",
     "format": "prettier --write src/**/*",
-    "test": "npm run lint",
+    "test": "npm run lint && jest",
     "cov": "jest --coverage --coverageReporters=text-lcov | coveralls",
     "version": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md",
     "release": "bash build/git.sh && bash build/release.sh"
@@ -129,6 +129,7 @@
   "lint-staged": {
     "**/*.{js,vue}": [
       "eslint --fix",
+      "prettier --write",
       "git add"
     ]
   },

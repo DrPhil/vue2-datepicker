@@ -75,6 +75,7 @@ function _objectSpread2(target) {
       ownKeys(Object(source)).forEach(function(key) {
         Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
       });
+    }
   }
 
   return target;
@@ -1397,6 +1398,7 @@ function normalizeComponent(
   } // Vue.extend constructor export interop.
 
   var options = typeof script === 'function' ? script.options : script; // render functions
+
   if (template && template.render) {
     options.render = template.render;
     options.staticRenderFns = template.staticRenderFns;
@@ -1410,6 +1412,7 @@ function normalizeComponent(
   if (scopeId) {
     options._scopeId = scopeId;
   }
+
   var hook;
 
   if (moduleIdentifier) {
@@ -1429,11 +1432,13 @@ function normalizeComponent(
       if (style) {
         style.call(this, createInjectorSSR(context));
       } // register component module identifier for async chunk inference
+
       if (context && context._registeredComponents) {
         context._registeredComponents.add(moduleIdentifier);
       }
     }; // used by ssr in case component is cached and beforeCreate
     // never gets called
+
     options._ssrRegister = hook;
   } else if (style) {
     hook = shadowMode
@@ -1444,6 +1449,7 @@ function normalizeComponent(
           style.call(this, createInjector(context));
         };
   }
+
   if (hook) {
     if (options.functional) {
       // register for functional component in vue file
@@ -1673,6 +1679,7 @@ var script = {
 
       calendar.setMonth(month + 1, 0);
       var lastDayInCurrentMonth = calendar.getDate();
+
       for (var _i = 1; _i <= lastDayInCurrentMonth; _i++) {
         arr.push({
           day: _i,
@@ -4008,6 +4015,7 @@ var TimeRange = {
       ]
     );
   },
+};
 
 function _extends$1() {
   return (

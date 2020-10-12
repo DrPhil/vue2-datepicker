@@ -139,12 +139,20 @@ exports[`CalendarPanel prop: type=month 1`] = `
       class="mx-calendar-header-label"
     >
       <button
-        class="mx-btn mx-btn-text"
+        class="mx-btn mx-btn-text mx-btn-current-month"
         type="button"
       >
         
-        2019
-      
+          Oct
+        
+      </button>
+      <button
+        class="mx-btn mx-btn-text mx-btn-current-year"
+        type="button"
+      >
+        
+          2019
+        
       </button>
     </span>
   </div>
@@ -215,17 +223,22 @@ exports[`CalendarPanel prop: type=year 1`] = `
     <span
       class="mx-calendar-header-label"
     >
-      <span>
-        2010
-      </span>
-       
-      <span
-        class="mx-calendar-decade-separator"
-      />
-       
-      <span>
-        2019
-      </span>
+      <button
+        class="mx-btn mx-btn-text mx-btn-current-month"
+        type="button"
+      >
+        
+          Jan
+        
+      </button>
+      <button
+        class="mx-btn mx-btn-text mx-btn-current-year"
+        type="button"
+      >
+        
+          2019
+        
+      </button>
     </span>
   </div>
    
