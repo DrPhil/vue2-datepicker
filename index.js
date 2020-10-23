@@ -5332,107 +5332,105 @@
           _obj),
       },
       [
-        !_vm.inline
-          ? _c(
-              'div',
-              {
-                class: _vm.prefixClass + '-input-wrapper',
-                on: {
-                  mousedown: _vm.openPopup,
-                },
-              },
+        _c(
+          'div',
+          {
+            class: _vm.prefixClass + '-input-wrapper',
+            on: {
+              mousedown: _vm.openPopup,
+            },
+          },
+          [
+            _vm._t(
+              'input',
               [
-                _vm._t(
+                _c(
                   'input',
-                  [
-                    _c(
-                      'input',
-                      _vm._g(
-                        _vm._b(
-                          {
-                            ref: 'input',
-                          },
-                          'input',
-                          _extends(
-                            {},
-                            {
-                              name: 'date',
-                              type: 'text',
-                              autocomplete: 'off',
-                              value: _vm.text,
-                              class: _vm.inputClass,
-                              readonly: !_vm.editable,
-                              disabled: _vm.disabled,
-                              placeholder: _vm.placeholder,
-                            },
-                            _vm.inputAttr
-                          ),
-                          false
-                        ),
-                        {
-                          keydown: _vm.handleInputKeydown,
-                          focus: _vm.handleInputFocus,
-                          blur: _vm.handleInputBlur,
-                          input: _vm.handleInputInput,
-                          change: _vm.handleInputChange,
-                        }
-                      )
-                    ),
-                  ],
-                  {
-                    props: _extends(
-                      {},
+                  _vm._g(
+                    _vm._b(
                       {
-                        name: 'date',
-                        type: 'text',
-                        autocomplete: 'off',
-                        value: _vm.text,
-                        class: _vm.inputClass,
-                        readonly: !_vm.editable,
-                        disabled: _vm.disabled,
-                        placeholder: _vm.placeholder,
+                        ref: 'input',
                       },
-                      _vm.inputAttr
+                      'input',
+                      _extends(
+                        {},
+                        {
+                          name: 'date',
+                          type: 'text',
+                          autocomplete: 'off',
+                          value: _vm.text,
+                          class: _vm.inputClass,
+                          readonly: !_vm.editable,
+                          disabled: _vm.disabled,
+                          placeholder: _vm.placeholder,
+                        },
+                        _vm.inputAttr
+                      ),
+                      false
                     ),
-                    events: {
+                    {
                       keydown: _vm.handleInputKeydown,
                       focus: _vm.handleInputFocus,
                       blur: _vm.handleInputBlur,
                       input: _vm.handleInputInput,
                       change: _vm.handleInputChange,
-                    },
-                  }
-                ),
-                _vm._v(' '),
-                _vm.showClearIcon
-                  ? _c(
-                      'i',
-                      {
-                        class: _vm.prefixClass + '-icon-clear',
-                        on: {
-                          mousedown: function mousedown($event) {
-                            $event.stopPropagation();
-                            return _vm.handleClear($event);
-                          },
-                        },
-                      },
-                      [_vm._t('icon-clear', [_c('icon-close')])],
-                      2
-                    )
-                  : _vm._e(),
-                _vm._v(' '),
-                _c(
-                  'i',
-                  {
-                    class: _vm.prefixClass + '-icon-calendar',
-                  },
-                  [_vm._t('icon-calendar', [_c('icon-calendar')])],
-                  2
+                    }
+                  )
                 ),
               ],
+              {
+                props: _extends(
+                  {},
+                  {
+                    name: 'date',
+                    type: 'text',
+                    autocomplete: 'off',
+                    value: _vm.text,
+                    class: _vm.inputClass,
+                    readonly: !_vm.editable,
+                    disabled: _vm.disabled,
+                    placeholder: _vm.placeholder,
+                  },
+                  _vm.inputAttr
+                ),
+                events: {
+                  keydown: _vm.handleInputKeydown,
+                  focus: _vm.handleInputFocus,
+                  blur: _vm.handleInputBlur,
+                  input: _vm.handleInputInput,
+                  change: _vm.handleInputChange,
+                },
+              }
+            ),
+            _vm._v(' '),
+            _vm.showClearIcon
+              ? _c(
+                  'i',
+                  {
+                    class: _vm.prefixClass + '-icon-clear',
+                    on: {
+                      mousedown: function mousedown($event) {
+                        $event.stopPropagation();
+                        return _vm.handleClear($event);
+                      },
+                    },
+                  },
+                  [_vm._t('icon-clear', [_c('icon-close')])],
+                  2
+                )
+              : _vm._e(),
+            _vm._v(' '),
+            _c(
+              'i',
+              {
+                class: _vm.prefixClass + '-icon-calendar',
+              },
+              [_vm._t('icon-calendar', [_c('icon-calendar')])],
               2
-            )
-          : _vm._e(),
+            ),
+          ],
+          2
+        ),
         _vm._v(' '),
         _c(
           'Popup',
