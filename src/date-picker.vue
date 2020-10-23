@@ -7,7 +7,7 @@
       disabled: disabled,
     }"
   >
-    <div v-if="!inline" :class="`${prefixClass}-input-wrapper`" @mousedown="openPopup">
+    <div :class="`${prefixClass}-input-wrapper`" @mousedown="openPopup">
       <slot
         name="input"
         :props="{
