@@ -1,16 +1,18 @@
 <template>
   <table :class="`${prefixClass}-table ${prefixClass}-table-year`" @click="handleClick">
-    <tr v-for="(row, i) in years" :key="i">
-      <td
-        v-for="(cell, j) in row"
-        :key="j"
-        :data-year="cell"
-        class="cell"
-        :class="getCellClasses(cell)"
-      >
-        <div>{{ cell }}</div>
-      </td>
-    </tr>
+    <tbody>
+      <tr v-for="(row, i) in years" :key="i">
+        <td
+          v-for="(cell, j) in row"
+          :key="j"
+          :data-year="cell"
+          class="cell"
+          :class="getCellClasses(cell)"
+        >
+          <div>{{ cell }}</div>
+        </td>
+      </tr>
+    </tbody>
   </table>
 </template>
 

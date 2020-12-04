@@ -1,16 +1,18 @@
 <template>
   <table :class="`${prefixClass}-table ${prefixClass}-table-month`" @click="handleClick">
-    <tr v-for="(row, i) in months" :key="i">
-      <td
-        v-for="(cell, j) in row"
-        :key="j"
-        :data-month="cell.month"
-        class="cell"
-        :class="getCellClasses(cell.month)"
-      >
-        <div>{{ cell.text }}</div>
-      </td>
-    </tr>
+    <tbody>
+      <tr v-for="(row, i) in months" :key="i">
+        <td
+          v-for="(cell, j) in row"
+          :key="j"
+          :data-month="cell.month"
+          class="cell"
+          :class="getCellClasses(cell.month)"
+        >
+          <div>{{ cell.text }}</div>
+        </td>
+      </tr>
+    </tbody>
   </table>
 </template>
 

@@ -2448,30 +2448,35 @@
           click: _vm.handleClick,
         },
       },
-      _vm._l(_vm.months, function(row, i) {
-        return _c(
-          'tr',
-          {
-            key: i,
-          },
-          _vm._l(row, function(cell, j) {
+      [
+        _c(
+          'tbody',
+          _vm._l(_vm.months, function(row, i) {
             return _c(
-              'td',
+              'tr',
               {
-                key: j,
-                staticClass: 'cell',
-                class: _vm.getCellClasses(cell.month),
-                attrs: {
-                  'data-month': cell.month,
-                },
+                key: i,
               },
-              [_c('div', [_vm._v(_vm._s(cell.text))])]
+              _vm._l(row, function(cell, j) {
+                return _c(
+                  'td',
+                  {
+                    key: j,
+                    staticClass: 'cell',
+                    class: _vm.getCellClasses(cell.month),
+                    attrs: {
+                      'data-month': cell.month,
+                    },
+                  },
+                  [_c('div', [_vm._v(_vm._s(cell.text))])]
+                );
+              }),
+              0
             );
           }),
           0
-        );
-      }),
-      0
+        ),
+      ]
     );
   };
 
@@ -2575,30 +2580,35 @@
           click: _vm.handleClick,
         },
       },
-      _vm._l(_vm.years, function(row, i) {
-        return _c(
-          'tr',
-          {
-            key: i,
-          },
-          _vm._l(row, function(cell, j) {
+      [
+        _c(
+          'tbody',
+          _vm._l(_vm.years, function(row, i) {
             return _c(
-              'td',
+              'tr',
               {
-                key: j,
-                staticClass: 'cell',
-                class: _vm.getCellClasses(cell),
-                attrs: {
-                  'data-year': cell,
-                },
+                key: i,
               },
-              [_c('div', [_vm._v(_vm._s(cell))])]
+              _vm._l(row, function(cell, j) {
+                return _c(
+                  'td',
+                  {
+                    key: j,
+                    staticClass: 'cell',
+                    class: _vm.getCellClasses(cell),
+                    attrs: {
+                      'data-year': cell,
+                    },
+                  },
+                  [_c('div', [_vm._v(_vm._s(cell))])]
+                );
+              }),
+              0
             );
           }),
           0
-        );
-      }),
-      0
+        ),
+      ]
     );
   };
 
